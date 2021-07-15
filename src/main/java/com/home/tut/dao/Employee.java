@@ -17,6 +17,9 @@ public class Employee {
     private String nonPersistedValue;
     private LocalDateTime dateOfBirth;
 
+    @OneToOne
+    private AccessCard accessCard;
+
 
     public int getId() {
         return id;
@@ -56,6 +59,14 @@ public class Employee {
 
     public void setDateOfBirth(LocalDateTime dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public AccessCard getAccessCard() {
+        return accessCard;
+    }
+
+    public void setAccessCard(AccessCard accessCard) {
+        this.accessCard = accessCard;
     }
 
     @Override
