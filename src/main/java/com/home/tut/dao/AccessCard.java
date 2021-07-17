@@ -1,9 +1,6 @@
 package com.home.tut.dao;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class AccessCard {
@@ -13,6 +10,8 @@ public class AccessCard {
     private int id;
     private String organization;
     private String firmwareVersion;
+    @OneToOne(mappedBy = "accessCard")
+    private Employee cardOwnedBy;
 
     public int getId() {
         return id;
@@ -36,5 +35,23 @@ public class AccessCard {
 
     public void setFirmwareVersion(String firmwareVersion) {
         this.firmwareVersion = firmwareVersion;
+    }
+
+    public Employee getCardOwnedBy() {
+        return cardOwnedBy;
+    }
+
+    public void setCardOwnedBy(Employee cardOwnedBy) {
+        this.cardOwnedBy = cardOwnedBy;
+    }
+
+    @Override
+    public String toString() {
+        return "AccessCard{" +
+                "id=" + id +
+                ", organization='" + organization + '\'' +
+                ", firmwareVersion='" + firmwareVersion + '\'' +
+                ", cardOwnedBy=" + cardOwnedBy +
+                '}';
     }
 }
