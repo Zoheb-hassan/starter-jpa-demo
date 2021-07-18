@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "EMPLOYEE_DATA")
+@NamedQuery(name = "fetch_by_employee_id", query = "select e from Employee e where e.id = :employeeId")
 public class Employee {
 
     @Id

@@ -11,7 +11,7 @@ import java.util.List;
 public class JpqlStarterDemo {
 
     public static void main(String[] args) {
-        useQueryParameters(5);
+        namedQuerySample(5);
     }
 
     /**
@@ -57,5 +57,21 @@ public class JpqlStarterDemo {
         resultList.forEach(System.out::println);
         entityManager.close();
         entityManagerFactory.close();
+    }
+
+
+    /**
+     * Use Named Query Sample
+     */
+    public static void namedQuerySample(int id){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        TypedQuery<Employee> fetch_by_employee_id = entityManager.createNamedQuery("fetch_by_employee_id", Employee.class);
+        TypedQuery<Employee> typedQuery = fetch_by_employee_id.setParameter("employeeId", id);
+        Employee employee = typedQuery.getSingleResult();
+        System.out.println(employee);
+        entityManager.close();
+        entityManagerFactory.close();
+
     }
 }
