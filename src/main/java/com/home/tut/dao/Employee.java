@@ -96,7 +96,7 @@ public class Employee {
         this.emailDistributionLists = emailDistributionLists;
     }
 
-    private void addMailDl(EmailDistributionList emailDistributionList) {
+    public void addMailDl(EmailDistributionList emailDistributionList) {
         this.emailDistributionLists.add(emailDistributionList);
     }
 

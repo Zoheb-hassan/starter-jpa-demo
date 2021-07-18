@@ -38,7 +38,7 @@ public class EmailDistributionList {
         this.employees = employees;
     }
 
-    private void addEmployee(Employee employee) {
+    public void addEmployee(Employee employee) {
         this.employees.add(employee);
     }
 }
